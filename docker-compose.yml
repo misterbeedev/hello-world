@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  vps:
+    image: dockurr/windows:latest
+    container_name: vps
+    environment:
+      CPU_CORES: 4
+      RAM_SIZE: "8G"
+      DISK_SIZE: "32G"
+      DISK2_SIZE: "256G"
+      VERSION: "win11"
+      LANGUANGE: "english"
+      REGION: "en-US"
+      KEYBOARD: "en-US"
+      USERNAME: "root"
+      PASSWORD: "admin123"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    restart: always

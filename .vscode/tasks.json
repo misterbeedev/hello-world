@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Open docker-compose.yml file",
+      "type": "shell",
+      "command": "code -r docker-compose.yml",
+      "problemMatcher": [],
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Run docker container",
+      "type": "shell",
+      "command": "sh",
+      "args": [
+        "-c",
+        "docker-compose ps | grep 'Up' || docker-compose up"
+      ],
+      "problemMatcher": [],
+      "group": "build",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}
